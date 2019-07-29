@@ -1,0 +1,26 @@
+const books = [
+  {
+    name: 'Lord of the Rings', genre: 'Fantasy', id: '1', authorId: '1',
+  },
+  {
+    name: 'The Lady in the Lake', genre: 'Crime', id: '2', authorId: '2',
+  },
+  {
+    name: 'The Big Sleep', genre: 'Crime', authorId: '2',
+  },
+  {
+    name: 'Seveneves', genre: 'Sci-fi', id: '3', authorId: '3',
+  },
+  {
+    name: 'Reamde', genre: 'Sci-fi', id: '4', authorId: '3',
+  },
+  {
+    name: 'Anathem', genre: 'Fantasy', id: '5', authorId: '3',
+  },
+];
+
+const authors = [
+  { name: 'JRR Tolkien', age: 99, id: '1' },
+  { name: 'Raymond Chandler', age: 99, id: '2' },
+  { name: 'Neil Stephenson', age: 54, id: '3' },
+];
