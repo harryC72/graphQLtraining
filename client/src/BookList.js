@@ -1,13 +1,13 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 
-export default class BookList extends Component {
+export default class BookList extends PureComponent {
     render() {
         return (
-            <div>
-                <ul id="book-list">
-                    <li>Book name</li>
-                </ul>
-            </div>
+          <div>
+            <ul id="book-list">
+              <li>Book name</li>
+            </ul>
+          </div>
         )
     }
 }
