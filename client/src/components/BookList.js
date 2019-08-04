@@ -11,6 +11,10 @@ class BookList extends PureComponent {
     };
   }
 
+  removeBook(id) {
+    console.log("Pressing remove");
+  }
+
   displayBooks() {
     const { data } = this.props;
     if (data.loading === true) {
@@ -24,7 +28,14 @@ class BookList extends PureComponent {
         }}
       >
         {book.name}
-        <div>X</div>
+        <div
+          role="button"
+          tabIndex="-1"
+          onKeyPress={this.handleKeyPress}
+          onClick={this.removeBook(book.id)}
+        >
+          X
+        </div>
       </li>
     ));
   }
