@@ -31,7 +31,7 @@ class BookDetails extends PureComponent {
 export default graphql(getBookQuery, {
   options: props => ({
     variables: {
-      id: props.bookId
-    }
-  })
+      id: props.bookId,
+    },
+  }),
 })(BookDetails);

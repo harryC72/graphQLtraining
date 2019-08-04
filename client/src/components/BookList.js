@@ -1,27 +1,33 @@
-import React, { PureComponent } from "react";
-import { graphql } from "react-apollo";
-import { getBooksQuery } from "../queries/queries";
-import BookDetails from "./BookDetails";
+import React, { PureComponent } from 'react';
+import { graphql, compose } from 'react-apollo';
+import { getBooksQuery, deleteBookMutation } from '../queries/queries';
+import BookDetails from './BookDetails';
+import AddBook from './AddBook';
 
 class BookList extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      selected: null
+      selected: null,
     };
   }
 
   displayBooks() {
-    const { data } = this.props;
+    const { data, deleteBookMutation } = this.props;
     if (data.loading === true) {
       return <div>Loading books</div>;
     }
     return data.books.map(book => (
       <li
         key={book.id}
-        onClick={e => {
+        onClick={(e) => {
           this.setState({ selected: book.id });
         }}
+        onClick={(e) => {deleteBookMutation({
+          variables:{
+            id: book.id
+          }
+        })}}
       >
         {book.name}
       </li>
@@ -38,4 +44,7 @@ class BookList extends PureComponent {
   }
 }
 
-export default graphql(getBooksQuery)(BookList);
+export default compose(
+  graphql(getBooksQuery, { name: 'getBooksQuery' }),
+  graphql(deleteBookMutation, { name: 'deleteBookMutation' }),
+)(AddBook);
