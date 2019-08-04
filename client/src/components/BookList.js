@@ -24,6 +24,7 @@ class BookList extends PureComponent {
         }}
       >
         {book.name}
+        <div>X</div>
       </li>
     ));
   }
@@ -39,3 +40,8 @@ class BookList extends PureComponent {
 }
 
 export default graphql(getBooksQuery)(BookList);
+
+// export default compose(
+//   graphql(getAuthorsQuery, { name: 'getAuthorsQuery' }),
+//   graphql(addBookMutation, { name: 'addBookMutation' }),
+// )(AddBook);
